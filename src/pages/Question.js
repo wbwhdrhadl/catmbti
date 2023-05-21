@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {ProgressBar,Button} from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 import { QuestionData } from '../assets/data/questiondata';
 
 
@@ -17,8 +17,6 @@ const Question=()=>{
     ])
     const navigate=useNavigate();
 
-    console.log('totalScore',totalScore);
-
     const handleClickButton=(no,type)=>{
         const newScore=totalScore.map((s)=>
             s.id===type? {id:s.id, score:s.score+no}: s
@@ -29,14 +27,25 @@ const Question=()=>{
         if(QuestionData.length!==questionNo+1){
             setQuestionNo(questionNo+1);
         }else{
+            //mbti 도출
+            const mbti=newScore.reduce(
+                (acc,curr)=>
+                    acc+(curr.score>=2 ? curr.id.substring(0,1): curr.id.substring(1,2)),
+                ""
+
+            );
+
             //페이지 이동
-            navigate("/result");
+            navigate({
+                pathname: "/result",
+                search: `?${createSearchParams({
+                    mbti: mbti,
+                })}`
+            });
 
         }
         setQuestionNo(questionNo+1);
 
-
-        console.log('newScore',newScore);
         // if(type==="EI"){
         //     //기존 스코어에 더할 값을 계산(기존의 값+배점)
         //     const addScore=totalScore[0].score+no;
