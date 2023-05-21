@@ -12,6 +12,9 @@ import Scotish from '../cat/Scotish.jpg';
 import Spin from '../cat/Spin.jpg';
 import Turkey from '../cat/Turkey.jpg';
 import acjo from '../cat/acjo.jpg';
+import Rusi from '../cat/Rusi.jpg';
+import Peri from '../cat/Peri.jpg';
+
 
 
 
@@ -116,7 +119,29 @@ export const ResultData=[
         best:'ENFP',
         desc:'접힌 귀가 굉장히 귀여움',
         image:`${Scotish}`
+    },
+    {
+        id:14,
+        name:'러시안 블루',
+        best:'ESTJ',
+        desc:'겁이 많아요 그리고 온순해요',
+        image:`${Rusi}`
+    },
+    {
+        id:15,
+        name:'페르시안',
+        best:'ENTJ',
+        desc:'조용하고 성격도 순한 편이다',
+        image:`${Peri}`
+    },
+    {
+        id:16,
+        name:'스코티쉬 폴드',
+        best:'ENFP',
+        desc:'접힌 귀가 굉장히 귀여움',
+        image:`${Scotish}`
     }
+
 
 
 ]
